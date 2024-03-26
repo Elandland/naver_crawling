@@ -2,16 +2,16 @@ name: Run Python Script and Commit File
 
 on:
   workflow_dispatch:
-
+# on:[push] <-이런식으로 쓰면 push할때마다 action실행할 수 도 있음. cron쓰면 주기적으로 돌림.
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repository #name은 아무거나 해도 됨. 한글로 써도 됨.
         uses: actions/checkout@v2
         with:
-          persist-credentials: false # 이 줄을 추가합니다
+          persist-credentials: false # 개인토큰을 사용할 것인지
 
       - name: Set up Python
         uses: actions/setup-python@v2
